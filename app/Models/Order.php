@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use APP\Models\User;
-use APP\Models\Cart;
+
 use APP\Models\Area;
 class Order extends Model
 {
@@ -24,8 +24,8 @@ class Order extends Model
 
     ];
 
-    public function cart(){
-        return  $this->belongsTo(Cart::class);
+    public function customer(){
+        return  $this->belongsTo(User::class);
     }
 
 
