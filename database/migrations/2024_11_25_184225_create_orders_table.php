@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cart_id')->references('id')->on('carts')->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('delivery_id')->references('id')->on('users')->onDelete('cascade');
             $table->enum('status',['wait','progress','complete']);
             $table->string('estimated_time')->nullable();
