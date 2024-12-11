@@ -19,7 +19,7 @@ class Product extends Model
         'price',
         'discount',
         'category_id',
-        
+        'image',
 
     ];
 
