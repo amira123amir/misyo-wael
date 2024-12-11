@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('phone')->unique();
             $table->string('password');
             $table->enum('role',['admin','delivery','customer']);
-            $table->string('city');
+            $table->string('city')->nullable();
             $table->boolean('active')->default(true);
             $table->boolean('blocked')->default(false);
             $table->string('image')->nullable();
