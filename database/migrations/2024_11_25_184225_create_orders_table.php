@@ -13,16 +13,18 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique();
+            $table->json('title');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('delivery_id')->references('id')->on('users')->onDelete('cascade');
             $table->enum('status',['wait','progress','complete']);
             $table->string('estimated_time')->nullable();
             $table->dateTime('start_time')->nullable();
             $table->dateTime('end_time')->nullable();
-            $table->string('count_products')->nullable();
+            $table->unsignedInteger('count_products')->nullable();
             $table->foreignId('area_id')->references('id')->on('areas')->onDelete('cascade');
             $table->string('area_address')->nullable();
-            $table->string('total_price')->nullable();
+            $table->unsignedInteger('total_price')->nullable();
             $table->timestamps();
         });
     }

@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use APP\Models\Order;
+use Illuminate\Support\Str;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -17,6 +18,26 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+     protected static function booted()
+    {
+        static::creating(function ($model) {
+            $model->uuid = Str::uuid()->toString();
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     protected $fillable = [
         'name',
         'email',

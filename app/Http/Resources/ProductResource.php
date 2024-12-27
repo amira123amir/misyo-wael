@@ -19,7 +19,7 @@ class ProductResource extends JsonResource
         return [
             'id'=>$this->id,
             'title'=>$this->title,
-            'stock' => $this->quantity,
+            'quantity' => $this->quantity,
             'size' => $this->size,
              'color'=>$this->color,    
              'material'=>$this->material, 
@@ -32,7 +32,7 @@ class ProductResource extends JsonResource
     }
 
     public function successResponse()
-    {return "hello";
+    {
         return $this->apiResponse(['categories' => $this], true, null, 200);
     }
 
