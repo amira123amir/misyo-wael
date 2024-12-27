@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('areas', function (Blueprint $table) {
             $table->id();
-            $table->enum('area',['Gota','Dablan','Waer','Karm Al Shami','Bab Al Sebaa','Al Khader','Al Zahra','Wadi Al Dahab','Al Idikhar']);
+            $table->enum('name',['Gota','Dablan','Waer','Karm Al Shami','Bab Al Sebaa','Al Khader','Al Zahra','Wadi Al Dahab','Al Idikhar']);
             $table->foreignId('city_id')->references('id')->on('cities')->onDelete('cascade');
             $table->timestamps();
         });

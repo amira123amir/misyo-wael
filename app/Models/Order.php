@@ -5,14 +5,42 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use APP\Models\User;
-
+use Illuminate\Support\Str;
 use APP\Models\Area;
 class Order extends Model
 {
     use HasFactory;
+
+
+    protected static function booted()
+    {
+        static::creating(function ($model) {
+            $model->uuid = Str::uuid()->toString();
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     protected $fillable = [
-        'cart_id',
-        'product_id',
+        'title',
+        'user_id',
+        'delivery_id',
         'status',
         'estimated_time',
         'start_time',

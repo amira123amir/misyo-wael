@@ -6,9 +6,39 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use APP\Models\Category;
 use APP\Models\OrderItem;
+use Illuminate\Support\Str;
 class Product extends Model
 {
     use HasFactory;
+
+
+
+    protected static function booted()
+    {
+        static::creating(function ($model) {
+            $model->uuid = Str::uuid()->toString();
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     protected $fillable = [
         'title',
         'size',
