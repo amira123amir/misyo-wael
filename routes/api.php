@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Customer\Auth\CustomerRegisterController;
 use App\Http\Controllers\Api\Customer\Auth\CustomerLoginController;
 use App\Http\Controllers\Api\Customer\CustomerController;
+use App\Http\Controllers\Api\Customer\OrderController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -36,6 +37,8 @@ Route::middleware(['auth:sanctum','Customer'])->group(function(){
 );
 
 Route::get('/product', [CustomerController::class,'index'])->name('product.index');
+
+Route::get('/order', [OrderController::class,'store']);
 
 
 
